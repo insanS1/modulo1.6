@@ -1,0 +1,39 @@
+
+.es, .en { display: none; }
+
+.es:lang(es) {
+  display: block;
+}
+
+.en:lang(en) {
+  display: block;
+}
+
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  }
+
+  button{
+  	border: none;
+  	background-color: transparent;
+  	
+  }
+.contenedor{
+	text-align: center;
+}
+
+h1 {
+	margin-top: 100px;
+	text-align:center;
+	font-size:60px;
+	font-family: 'Piazzolla', serif;
+	}
+
+p {
+	text-align: justify;
+  font-family: 'Piazzolla', serif;
+}
+

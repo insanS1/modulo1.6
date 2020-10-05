@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<link rel="stylesheet" type="text/css" href="css/diseño.css">
+		<link href="https://fonts.googleapis.com/css2?family=Piazzolla:ital,wght@1,300&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Piazzolla:ital,wght@1,300;1,900&display=swap" rel="stylesheet">
+		<title>HTML y CSS</title>
+	</head>
+	<body>
+		<h1>HTML y CSS</h1>
+		
+		
+		<div class="contenedor">
+			<button data-lang="es"><img class="circle" src="img/ES.png"> </button>
+		<button data-lang="en"><img class="circle" src="img/EEUU.png"></button>
+
+		</div>
+		
+		<h2 class="es" >CSS</h2>
+		<p class="es">Capítulo 1: Empezando con CSS
+			<br>
+			<br>
+Fecha de lanzamiento de la versión<br>
+1- 1996-12-17<br>
+2- 1998-05-12<br>
+3- 2015-10-13<br>
+<strong>Sección 1.1: Hoja de estilo externa</strong><br>
+Se puede aplicar una hoja de estilo CSS externa a cualquier número de documentos HTML colocando un elemento &lt;  link  &gt; en cada
+Documento HTML.
+El atributo rel de la etiqueta &lt;  link  &gt; debe establecerse en "hoja de estilo" y el atributo href en el valor relativo o absoluto.
+ruta a la hoja de estilo. Si bien el uso de rutas de URL relativas generalmente se considera una buena práctica, las rutas absolutas se pueden
+Usado también. En HTML5, el atributo de tipo se puede omitir.
+Se recomienda que la etiqueta &lt;  link  &gt; se coloque en la etiqueta &lt;  head  &gt; del archivo HTML para que los estilos se carguen antes
+los elementos que diseñan. De lo contrario, los usuarios verán un destello de contenido sin estilo.<br><br>
+
+Ejemplo:<br><br>
+hello-world.html<br>
+<! DOCTYPE html><br>
+&lt; html &gt;<br>
+&lt; head &gt;<br>
+&lt; meta charset = "utf-8" /&gt;<br>
+&lt; link rel = "stylesheet" type = "text / css" href = "style.css" &gt;<br>
+&lt; /head &gt;<br>
+&lt; body &gt;<br>
+&lt; h1 &gt;  Hello world! &lt; /h1&gt;<br>
+&lt; p &gt;  I ♥ CSS &lt; /p&gt;<br>
+&lt; /body &gt;<br>
+&lt; /html &gt;<br>
+style.css<br>
+h1 {<br>
+ color: green;<br>
+ text-decoration: underline;<br>
+}<br>
+p {<br>
+ font-size: 25px;<br>
+ font-family: 'Trebuchet MS', sans-serif;<br>
+}<br>
+<br>
+Asegúrese de incluir la ruta correcta a su archivo CSS en el href. Si el archivo CSS está en la misma carpeta que su HTML
+archivo, entonces no se requiere una ruta (como el ejemplo anterior) pero si está guardado en una carpeta, especifíquelo así<br>
+
+href = "nombrecarpeta / estilo.css".<br>
+&lt; link rel = "stylesheet" type = "text / css" href = "nombrecarpeta / style.css" &gt;<br>
+Las hojas de estilo externas se consideran la mejor manera de manejar su CSS. Hay una razón muy simple para esto: cuando
+está administrando un sitio de, digamos, 100 páginas, todo controlado por una sola hoja de estilo, y desea cambiar su enlace
+GoalKicker.com - Notas CSS para profesionales 3
+colores de azul a verde, es mucho más fácil hacer el cambio en su archivo CSS y dejar que los cambios se "cascada"
+a lo largo de las 100 páginas de lo que es ir en 100 páginas separadas y hacer el mismo cambio 100 veces. De nuevo, si
+desea cambiar completamente el aspecto de su sitio web, solo necesita actualizar este archivo.
+
+Puede cargar tantos archivos CSS en su página HTML como necesite.<br>
+ &lt; link rel = "stylesheet" type = "text / css" href = "main.css" &gt;<br>
+&lt; link rel = "stylesheet" type = "text / css" href = "override.css" &gt;<br>
+Las reglas CSS se aplican con algunas reglas básicas y el orden sí importa. Por ejemplo, si tiene un archivo main.css con
+algún código en él:
+p.green {color: # 00FF00; }
+Todos sus párrafos con la clase 'verde' se escribirán en verde claro, pero puede anular esto con otro .css
+archivo con solo incluirlo después de main.css. Puede tener override.css con el siguiente código siga main.css, para
+ejemplo:
+p.green {color: # 006600; }
+Ahora todos sus párrafos con la clase 'verde' se escribirán en verde más oscuro en lugar de verde claro.
+Se aplican otros principios, como el '! Importante 'regla, especificidad y herencia.
+Cuando alguien visita su sitio web por primera vez, su navegador descarga el HTML de la página actual más el CSS vinculado.
+expediente. Luego, cuando navegan a otra página, su navegador solo necesita descargar el HTML de esa página; los
+El archivo CSS se almacena en caché, por lo que no es necesario volver a descargarlo. Dado que los navegadores almacenan en caché la hoja de estilo externa,
+las páginas se cargan más rápido.
+<br><br>
+<strong>Sección 1.2: Estilos internos</strong><br>
+CSS incluido en etiquetas &lt;style&gt;  &lt; /style&gt; dentro de un documento HTML funciona como una hoja de estilo externa, excepto que
+vive en el documento HTML que diseña en lugar de en un archivo separado y, por lo tanto, solo se puede aplicar al
+documento en el que vive. Tenga en cuenta que este elemento debe estar dentro del elemento  &lt;head &gt; para la validación HTML (aunque
+funcionará en todos los navegadores actuales si se coloca en el cuerpo).
+
+&lt;head&gt;<br>
+&lt; style &gt;<br>
+ h1 {<br>
+ green color;<br>
+ text decoration: underline;<br>
+ }<br>
+ P {<br>
+ font size: 25px;<br>
+ font family: 'Trebuchet MS', sans-serif;<br>
+ }<br>
+&lt; /style &gt;<br>
+&lt;/head &gt;<br>
+&lt;body &gt;<br>
+&lt; h1 &gt; Hello world! &lt; /h1&gt;<br>
+&lt; p &gt; I ♥ CSS &lt;/p &gt;<br>
+&lt; /body &gt;<br><br>
+
+<strong> Sección 1.3: CSS @import rule (one of the CSS rules)</strong><br>
+
+La regla @import CSS se utiliza para importar reglas de estilo de otras hojas de estilo. Estas reglas deben preceder a todas las demás
+tipos de reglas, excepto las reglas @charset; como no es una declaración anidada, @import no se puede usar dentro de condicional
+grupo en reglas. @importar.
+Cómo usar @import
+
+Puede utilizar la regla @import de las siguientes formas:
+A. With internal style tag<br>
+ &lt; style &gt;<br>
+ @import url ('/ css / styles.css');<br>
+ &lt;/style &gt;<br>
+B. With external style sheet
+La siguiente línea importa un archivo CSS llamado additional-styles.css en el directorio raíz del archivo CSS en el que
+aparece:
+@import '/additional-styles.css';
+It is also possible to import external CSS. A common use case is font files.
+@import 'https://fonts.googleapis.com/css?family=Lato';
+An optional second argument to the @import rule is a list of media queries:
+@import '/print-styles.css' print;
+@import url ('landscape.css') screen and (orientation: landscape);
+
+Sección 1.4: Estilos en línea
+
+Utilice estilos en línea para diseñar un elemento específico. Tenga en cuenta que esto no es óptimo. Coloque reglas de estilo en un
+ &lt; style &gt;
+Se recomienda el archivo o etiqueta CSS externo para mantener una distinción entre contenido y presentación.
+Los estilos en línea anulan cualquier CSS en una etiqueta u hoja de estilo externa  &lt; style &gt;. Si bien esto puede ser útil en algunos
+Bajo circunstancias, este hecho a menudo reduce la mantenibilidad de un proyecto.
+Los estilos del siguiente ejemplo se aplican directamente a los elementos a los que están asociados.<br><br>
+&lt;h1 style = "color: green; text-decoration: underline;"> Hello world! &lt; /h1&gt;<br>
+&lt;p style = "font-size: 25px; font-family: 'Trebuchet MS';"> I ♥ CSS &lt; /p &gt;<br><br>
+
+Los estilos en línea son generalmente la forma más segura de garantizar la compatibilidad de representación en varios clientes de correo electrónico, programas
+y dispositivos, pero puede llevar mucho tiempo escribir y un poco difícil de administrar.
+
+Sección 1.5: Cambiar CSS con JavaScript
+
+JavaScript puro
+Es posible agregar, eliminar o cambiar valores de propiedad CSS con JavaScript a través de la propiedad de estilo de un elemento.
+
+var el = document.getElementById ("element");
+el.style.opacity = 0.5;
+el.style.fontFamily = 'sans-serif';
+
+Tenga en cuenta que las propiedades de estilo se nombran en estilo camello en minúscula. En el ejemplo, ve que la propiedad de CSS fontfamily se convierte en fontFamily en javascript.
+Como alternativa a trabajar directamente en elementos, puede crear un elemento &lt; style &gt; o &lt; link &gt; en JavaScript y
+añádalo al &lt; body &gt;  o &lt; head &gt;  del documento HTML.
+
+<br>
+
+jQuery
+Modifying CSS properties with jQuery is even easier.
+$ ('# element'). css ('margin', '5px');<br>
+If you need to change more than one style rule:<br>
+$ ('# element'). css ({<br>
+ margin: "5px",<br>
+ padding: "10px",<br>
+ black"<br>
+});<br>
+jQuery includes two ways to change CSS rules that are hyphenated (that is, font size). You can put them in
+quotes or camel-case the name of the style rule. <br>
+$ ('. class-example'). css ({<br>
+ "background-color": "blue",<br>
+ fontSize: "10px"<br>
+});<br>
+
+Ver también
+Documentación de JavaScript: lectura y cambio de estilo CSS.
+Documentación de jQuery - Manipulación CSS
+<br>
+<br>
+<strong> Sección 1.6: Listas de estilos CSS</strong><br><br>
+
+Hay tres propiedades diferentes para aplicar estilos a los elementos de la lista: tipo de estilo de lista, imagen de estilo de lista y posición de estilo de lista, que deben declararse en ese orden. Los valores predeterminados son disco, externo y ninguno, respectivamente. Cada
+La propiedad se puede declarar por separado o utilizando la propiedad abreviada de estilo de lista.
+list-style-type define la forma o el tipo de viñeta que se utilizará para cada elemento de la lista.
+Algunos de los valores aceptables para list-style-type:<br>
+
+•	Dto<br>
+•	circulo<br>
+•	cuadrado<br>
+•	decimal<br>
+•	romano inferior<br>
+•	romano superior<br>
+•	ninguna<br>
+<br>
+(Para obtener una lista exhaustiva, consulte la wiki de especificaciones del W3C)
+GoalKicker.com - Notas CSS para profesionales 6
+Para usar viñetas cuadradas para cada elemento de lista, por ejemplo, usaría el siguiente par propiedad-valor:
+
+
+li {
+ tipo de estilo de lista: cuadrado;
+}
+La propiedad list-style-image determina si el icono del elemento de lista está configurado con una imagen y acepta un valor de
+none o una URL que apunta a una imagen.
+
+li {
+ lista-estilo-imagen: url (imágenes / bullet.png);
+}
+La propiedad list-style-position define dónde colocar el marcador de elemento de lista y acepta uno de dos valores:
+"dentro o fuera".
+li {
+ posición-estilo-lista: interior;
+}
+<br><br>
+<strong> Capítulo 2: Estructura y formato de una Regla CSS</strong><br><br>
+<strong> Sección 2.1: Listas de propiedades</strong><br>
+Algunas propiedades pueden tomar varios valores, conocidos colectivamente como lista de propiedades.
+/ * Dos valores en esta lista de propiedades * /
+lapso {
+ sombra de texto: amarillo 0 0 3px, verde 4px 4px 10px;
+}
+/ * Formato alternativo * /
+lapso {
+ sombra de texto:
+ amarillo 0 0 3px,
+ verde 4px 4px 10px;
+
+<strong> Sección 2.2: Selectores múltiples</strong>
+
+Cuando agrupa selectores CSS, aplica los mismos estilos a varios elementos diferentes sin repetir los estilos
+en tu hoja de estilo. Utilice una coma para separar varios selectores agrupados.
+div, p {color: azul}
+Entonces, el color azul se aplica a todos los elementos &lt; div &gt; y todos los elementos &lt; p &gt;. 
+
+Sin la coma, solo &lt; p &gt; elementos que son
+un hijo de un &lt; div &gt; sería rojo.
+
+Esto también se aplica a todos los tipos de selectores.
+p, .blue, #first, div span {color: blue}
+Esta regla se aplica a:
+&lt; p &gt;
+elementos de la clase azul
+elemento con el ID primero
+cada &lt; span &gt; dentro de un &lt; div &gt;
+<br>
+<br>
+<strong> Sección 2.3: Reglas, selectores y bloques de declaración</strong><br>
+
+Una regla CSS consta de un selector (por ejemplo, h1) y un bloque de declaración ({}).
+h1 {}<br>
+<br>
+<strong> Capítulo 3: Comentarios</strong><br><br>
+<strong> Sección 3.1: Línea única</strong> <br>
+/ * This is a CSS comment * /<br>
+div {<br>
+ Red color; / * This is a CSS comment * /<br>
+}<br>
+<strong>Sección 3.2: Línea múltiple</strong>
+/ *<br>
+ East<br>
+ is<br>
+ to<br>
+ CSS<br>
+ commentary<br>
+* /<br>
+div {<br>
+ Red color;<br>
+}<br>
+
+</p>
+
+		<h2 class="en" >CSS</h2>
+		<p class="en">
+Chapter 1: Getting started with CSS
+<br>
+<br>
+Version Release Date <br>
+1- 1996-12-17 <br>
+2- 1998-05-12 <br>
+3- 2015-10-13 <br>
+<strong> Section 1.1: External Style Sheet </strong> <br>
+An external CSS stylesheet can be applied to any number of HTML documents by placing a & lt; link & gt; in each
+HTML document.
+The rel attribute of the & lt; link & gt; must be set to "stylesheet" and the href attribute to relative or absolute value.
+path to style sheet. While using relative URL paths is generally considered good practice, absolute paths can be
+Used too. In HTML5, the type attribute can be omitted.
+It is recommended that the tag & lt; link & gt; is placed on the tag & lt; head & gt; of the HTML file so that the styles are loaded before
+the elements they design. Otherwise, users will see a flash of unstyled content. <br> <br>
+
+
+Example:<br><br>
+hello-world.html<br>
+<! DOCTYPE html><br>
+&lt; html &gt;<br>
+&lt; head &gt;<br>
+&lt; meta charset = "utf-8" /&gt;<br>
+&lt; link rel = "stylesheet" type = "text / css" href = "style.css" &gt;<br>
+&lt; /head &gt;<br>
+&lt; body &gt;<br>
+&lt; h1 &gt;  Hello world! &lt; /h1&gt;<br>
+&lt; p &gt;  I ♥ CSS &lt; /p&gt;<br>
+&lt; /body &gt;<br>
+&lt; /html &gt;<br>
+style.css<br>
+h1 {<br>
+ color: green;<br>
+ text-decoration: underline;<br>
+}<br>
+p {<br>
+ font-size: 25px;<br>
+ font-family: 'Trebuchet MS', sans-serif;<br>
+}<br>
+<br>
+
+Make sure you include the correct path to your CSS file in the href. If the CSS file is in the same folder as your HTML
+file then a path is not required (like the example above) but if it is saved in a folder please specify like this <br>
+
+href = "foldername / style.css". <br>
+&lt; link rel = "stylesheet" type = "text / css" href = "foldername / style.css" &gt; <br>
+External style sheets are considered the best way to handle your CSS. There is a very simple reason for this: when
+you are managing a site of say 100 pages, all controlled by a single stylesheet, and you want to change your link
+GoalKicker.com - CSS Notes for Pros 3
+colors from blue to green, it is much easier to make the change in your CSS file and let the changes "cascade"
+Throughout the 100 pages it is to go on 100 separate pages and make the same change 100 times. Again yeah
+you want to completely change the look of your website, you just need to update this file.
+
+You can load as many CSS files into your HTML page as you need. <br>
+ &lt; link rel = "stylesheet" type = "text / css" href = "main.css" &gt; <br>
+&lt; link rel = "stylesheet" type = "text / css" href = "override.css" &gt; <br>
+CSS rules apply with some basic rules and order does matter. For example if you have a main.css file with
+some code in it:
+p.green {color: # 00FF00; }
+All your paragraphs with class 'green' will be written in light green, but you can override this with another .css
+file just by including it after main.css. You can have override.css with the following code follow main.css, to
+example:
+p.green {color: # 006600; }
+Now all your paragraphs with class 'green' will be written in darker green instead of light green.
+Other principles apply, such as the '! Important 'rule, specificity and inheritance.
+When someone visits your website for the first time, their browser downloads the HTML of the current page plus the linked CSS.
+proceedings. Then when they navigate to another page, their browser only needs to download the HTML from that page; the
+The CSS file is cached, so there is no need to download it again. Since browsers cache the external stylesheet,
+pages load faster.
+<br><br>
+
+<strong> Section 1.2: Internal Styles </strong> <br>
+CSS included in &lt; style &gt; tags &lt; / style &gt; inside an HTML document works like an external stylesheet, except that
+lives in the HTML document that you design rather than in a separate file and thus can only be applied to the
+document in which you live. Note that this element must be inside the &lt; head &gt; element. for HTML validation (although
+it will work in all current browsers if placed in the body).
+
+&lt;head&gt;<br>
+&lt; style &gt;<br>
+ h1 {<br>
+ green color;<br>
+ text decoration: underline;<br>
+ }<br>
+ P {<br>
+ font size: 25px;<br>
+ font family: 'Trebuchet MS', sans-serif;<br>
+ }<br>
+&lt; /style &gt;<br>
+&lt;/head &gt;<br>
+&lt;body &gt;<br>
+&lt; h1 &gt; Hola Mundo! &lt; /h1&gt;<br>
+&lt; p &gt; I ♥ CSS &lt;/p &gt;<br>
+&lt; /body &gt;<br><br>
+
+
+<strong> Section 1.3: CSS @import rule (one of the CSS rules) </strong> <br>
+
+The @import CSS rule is used to import style rules from other style sheets. These rules must precede all others
+rule types, except @charset rules; as it is not a nested statement, @import cannot be used inside conditional
+group in rules. @to import.
+How to use @import
+
+You can use the @import rule in the following ways:
+A. With internal style tag <br>
+ &lt; style &gt; <br>
+ @import url ('/ css / styles.css'); <br>
+ &lt; / style &gt; <br>
+B. With external style sheet
+The next line imports a CSS file called additional-styles.css into the root directory of the CSS file in which
+appears:
+@import '/additional-styles.css';
+It is also possible to import external CSS. A common use case is font files.
+@import 'https://fonts.googleapis.com/css?family=Lato';
+An optional second argument to the @import rule is a list of media queries:
+@import '/print-styles.css' print;
+@import url ('landscape.css') screen and (orientation: landscape);
+
+<strong> Section 1.4: Inline Styles</strong>
+
+Use inline styles to style a specific item. Note that this is not optimal. Place style rules in a
+ &lt; style &gt;
+The external CSS file or tag is recommended to maintain a distinction between content and presentation.
+Inline styles override any CSS in an external style sheet or tag &lt; style &gt;. While this may be useful in some
+Under circumstances, this fact often reduces the maintainability of a project.
+The styles in the following example are applied directly to the elements to which they are associated. <br> <br>
+&lt; h1 style = "color: green; text-decoration: underline;"&gt; Hello world! &lt; / h1 &gt; <br>
+&lt; p style = "font-size: 25px; font-family: 'Trebuchet MS';"&gt; I ♥ CSS &lt; / p &gt; <br> <br>
+
+Inline styles are generally the safest way to ensure rendering compatibility across various email clients, programs
+and devices, but it can be time consuming to write and a bit difficult to manage.
+
+
+
+<strong> Section 1.5: Change CSS with JavaScript </strong>
+
+Pure JavaScript
+You can add, remove, or change CSS property values ​​with JavaScript through an element's style property.
+
+var el = document.getElementById ("element");
+el.style.opacity = 0.5;
+el.style.fontFamily = 'sans-serif';
+
+Note that style properties are named in lowercase camel style. In the example, you see that the CSS property fontfamily is converted to fontFamily in javascript.
+As an alternative to working directly on elements, you can create an element & lt; style & gt; or & lt; link & gt; in JavaScript and
+add it to & lt; body & gt; or & lt; head & gt; of the HTML document.
+
+<br>
+
+jQuery
+Modifying CSS properties with jQuery is even easier.
+$ ('# element'). css ('margin', '5px'); <br>
+If you need to change more than one style rule: <br>
+$ ('# element'). css ({<br>
+ margin: "5px", <br>
+ padding: "10px", <br>
+ black "<br>
+}); <br>
+jQuery includes two ways to change CSS rules that are hyphenated (that is, font size). You can put them in
+quotes or camel-case the name of the style rule. for
+$ ('. class-example'). css ({<br>
+ "background-color": "blue", <br>
+ fontSize: "10px" <br>
+}); <br>
+
+See also
+JavaScript documentation: reading and changing the CSS style.
+JQuery Documentation - CSS Manipulation
+<br>
+<br>
+<strong> Section 1.6: CSS Style Lists </strong> <br> <br>
+
+There are three different properties for applying styles to list items: list style type, list style image, and list style position, which must be declared in that order. The default values ​​are disk, external, and none, respectively. Each
+The property can be declared separately or by using the list style shorthand property.
+list-style-type defines the shape or type of bullet to use for each item in the list.
+Some of the acceptable values ​​for list-style-type: <br>
+
+• Disc <br>
+• circle <br>
+• square <br>
+• decimal <br>
+• lower roman <br>
+• superior roman <br>
+• none <br>
+<br>
+(For a comprehensive list, see the W3C spec wiki)
+GoalKicker.com - CSS Notes for Pros 6
+To use square bullets for each list item, for example, you would use the following property-value pair:
+
+
+li {
+ list style type: square;
+}
+The list-style-image property determines whether the list item's icon is configured with an image and accepts a value of
+none or a URL pointing to an image.
+
+li {
+ image-style-list: url (images / bullet.png);
+}
+The list-style-position property defines where to place the list item marker and accepts one of two values:
+"inside or outside".
+li {
+ list-style-position: inside;
+}
+<br> <br>
+<strong> Chapter 2: Structure and format of a CSS Rule </strong> <br> <br>
+<strong> Section 2.1: Property Lists </strong> <br>
+Some properties can take multiple values, collectively known as a property list.
+/ * Two values ​​in this property list * /
+lapse {
+ text shadow: yellow 0 0 3px, green 4px 4px 10px;
+}
+/ * Alternative format * /
+lapse {
+ text shadow:
+ yellow 0 0 3px,
+ green 4px 4px 10px;
+
+<strong> Section 2.2: Multiple selectors </strong>
+
+When grouping CSS selectors, you apply the same styles to multiple different elements without repeating the styles
+in your stylesheet. Use a comma to separate multiple grouped selectors.
+div, p {color: blue}
+So the blue color is applied to all elements &lt; div &gt; and all elements &lt; p &gt;.
+
+Without the comma, just &lt; p &gt; elements that are
+a child of a &lt; div &gt; it would be red.
+
+This also applies to all types of selectors.
+p, .blue, #first, div span {color: blue}
+This rule applies to:
+&lt; p &gt;
+blue class elements
+element with id first
+each &lt; span &gt; within a &lt; div &gt;
+<br>
+<br>
+<strong> Section 2.3: Rules, selectors and declaration blocks </strong> <br>
+
+A CSS rule consists of a selector (for example, h1) and a declaration block ({}).
+h1 {} <br>
+<br>
+<strong> Chapter 3: Feedback </strong> <br> <br>
+<strong> Section 3.1: Single line </strong> <br>
+/ * This is a CSS comment * / <br>
+div {<br>
+ Red color; / * This is a CSS comment * / <br>
+} <br>
+<strong> Section 3.2: Multiple line </strong>
+/ * <br>
+ East <br>
+ is <br>
+ to
+ CSS <br>
+ commentary <br>
+* / <br>
+div {<br>
+ Red color; <br>
+} <br>
+
+
+		</p>
+
+		<h2 class="es">HTML</h2>
+		<p class="es">
+			<strong> Capítulo 1: Empezando con HTML </strong><br><br>
+Versión Especificación Fecha de publicación<br>
+1.0 N / A 1994-01-01<br>
+2.0 RFC 1866 24 de noviembre de 1995<br>
+3.2 W3C: Especificación HTML 3.2 1997-01-14<br>
+4.0 W3C: Especificación HTML 4.0 1998-04-24<br>
+4.01 W3C: Especificación HTML 4.01 1999-12-24<br>
+5 WHATWG: HTML Living Standard 2014-10-28<br>
+5.1 W3C: Especificación HTML 5.1 2016-11-01<br><br>
+<strong>Sección 1.1: Hola mundo</strong> <br><br>
+Introducción<br>
+HTML (lenguaje de marcado de hipertexto) utiliza un sistema de marcado compuesto de elementos que representan
+contenido. El marcado significa que con HTML declaras lo que se presenta a un espectador, no cómo se presenta. Visual
+Las representaciones se definen mediante hojas de estilo en cascada (CSS) y se realizan mediante navegadores. Elementos aún existentes que
+permitir tales, como por ejemplo font, "son completamente obsoletos y no deben ser utilizados por los autores" [1].
+HTML a veces se llama lenguaje de programación, pero no tiene lógica, por lo que es un lenguaje de marcado. Etiquetas HTML
+proporcionar significado semántico y legibilidad por máquina al contenido de la página.
+Un elemento generalmente consta de una etiqueta de apertura (&lt; nombre_elemento &gt;), una etiqueta de cierre (&lt; /nombre_elemento &gt;), que contienen el
+el nombre del elemento rodeado por corchetes angulares y el contenido entre ellos:
+&lt; nombre_elemento &gt; ... contenido ... &lt; /nombre_elemento &gt;
+
+Hay algunos elementos HTML que no tienen etiqueta de cierre ni contenido. Estos se denominan elementos vacíos. Vacío
+los elementos incluyen <br> &lt; img &gt; , &lt; meta &gt; ,&lt; link &gt; y &lt; input &gt; .<br>
+Los nombres de los elementos se pueden considerar como palabras clave descriptivas del contenido que contienen, como video, audio,
+tabla, pie de página.
+Una página HTML puede constar potencialmente de cientos de elementos que luego son leídos por un navegador web, interpretados
+y se convierte en contenido audible o legible por humanos en la pantalla.
+Para este documento, es importante tener en cuenta la diferencia entre elementos y etiquetas:
+Elementos: video, audio, tabla, pie de página
+Etiquetas:
+<br> &lt; video &gt; ,&lt; audio &gt; ,&lt; table &gt; ,&lt; footer &gt; ,&lt; /html &gt; ,&lt; /body &gt; 
+<br>
+Información del elemento
+Analicemos una etiqueta ...
+La etiqueta &lt; p &gt;  representa un párrafo común.
+Los elementos suelen tener una etiqueta de apertura y una etiqueta de cierre. La etiqueta de apertura contiene el nombre del elemento en ángulo.
+GoalKicker.com - Notas HTML5 para profesionales 3
+corchetes (&lt; p &gt;). La etiqueta de cierre es idéntica a la etiqueta de apertura con la adición de una barra inclinada (/) entre las
+corchete de apertura y el nombre del elemento (&lt; /p &gt;).
+El contenido puede ir entonces entre estas dos etiquetas: &lt; p &gt; Este es un párrafo simple. &lt; /p &gt;.
+
+Creando una página simple
+
+El siguiente ejemplo HTML crea una página web simple "Hello World".
+Los archivos HTML se pueden crear usando cualquier editor de texto. Los archivos deben guardarse con una extensión .html o .htm [2] para
+para ser reconocido como archivos HTML.
+Una vez creado, este archivo se puede abrir en cualquier navegador web.
+<br><br>
+&lt;! DOCTYPE html &gt;<br>
+&lt; html lang = "en" &gt;<br>
+&lt; head &gt; <br>
+ &lt;meta charset = "UTF-8"&gt;<br>
+ &lt;title &gt; hola! &lt;/title&gt;<br>
+ &lt; /head &gt;<br>
+ &lt; body &gt;<br>
+ &lt;h1 &gt; hola mundo! &lt;/h1 &gt;<br>
+ &lt; p &gt; Párrafo. &lt; /p &gt;<br>
+ &lt;/body &gt;<br>
+&lt;/html &gt;<br>
+
+Desglose de página simple
+Estas son las etiquetas utilizadas en el ejemplo:
+
+Significado de la etiqueta
+<br>
+&lt;! DOCTYPE &gt;
+Define la versión HTML utilizada en el documento. En este caso es HTML5.
+Consulte el tema sobre tipos de documentos para obtener más información.
+<br>
+&lt; html &gt;
+Abre la página. No debe haber marcado después de la etiqueta de cierre (&lt;/html &gt;). El atributo lang declara
+el idioma principal de la página utilizando los códigos de idioma ISO (en para inglés).
+Consulte el tema Idioma del contenido para obtener más información.
+<br>
+&lt;head &gt;
+Abre la sección de cabecera, que no aparece en la ventana principal del navegador, pero contiene principalmente
+información sobre el documento HTML, denominada metadatos. También puede contener importaciones de
+hojas de estilo y scripts. La etiqueta de cierre es 
+&lt;/head &gt;.
+<br>
+&lt;meta &gt; 
+Proporciona al navegador algunos metadatos sobre el documento. El atributo charset declara el personaje
+codificación. Los documentos HTML modernos siempre deben usar UTF-8, aunque no es un requisito. En
+HTML, la etiqueta &lt;meta &gt; no requiere una etiqueta de cierre.
+Consulte el tema Meta para obtener más información.
+<br>
+&lt;title &gt; 
+El título de la página. El texto escrito entre esta etiqueta de apertura y cierre (
+&lt;/title &gt; ) será
+que se muestra en la pestaña de la página o en la barra de título del navegador.
+
+<br>
+&lt;body &gt; 
+Abre la parte del documento que se muestra a los usuarios, es decir, todo el contenido visible o audible de una página. No
+el contenido debe agregarse después de la etiqueta de cierre 
+&lt;/body &gt;.
+GoalKicker.com - Notas HTML5 para profesionales 4
+
+
+&lt; h1 &gt;
+Un título de nivel 1 para la página.
+Consulte los títulos para obtener más información.
+
+&lt; p &gt; Representa un párrafo de texto común.
+1. ↑ HTML5, 11.2 Funciones no conformes
+2. ↑ .htm se hereda del límite de extensión de archivo de tres caracteres de DOS heredado.
+<br><br>
+<strong> Capítulo 2: Doctypes </strong><br><br>
+Doctypes - abreviatura de 'tipo de documento' - ayudan a los navegadores a comprender la versión de HTML en la que está escrito el documento
+para una mejor interpretación. Las declaraciones de tipo de documento no son etiquetas HTML y pertenecen al principio de un documento. Este
+El tema explica la estructura y declaración de varios doctypes en HTML.
+<br><br>
+<strong> Sección 2.1: Agregar el Doctype</strong><br><br>
+El &lt; ! La declaración DOCTYPE &gt; siempre debe incluirse en la parte superior del documento HTML, antes de la etiqueta &lt; html &gt; .
+Versión ≥ 5
+Consulte HTML 5 Doctype para obtener detalles sobre HTML 5 Doctype.
+<br>
+&lt; ! DOCTYPE html &gt;<br>
+Sección 2.2: Tipo de documento HTML 5
+HTML5 no se basa en SGML (lenguaje de marcado estándar generalizado) y, por lo tanto, no requiere una referencia
+a una DTD (Definición de tipo de documento).
+Declaración de HTML 5 Doctype:
+<br>
+&lt; ! DOCTYPE html &gt;
+<br>
+Insensibilidad a mayúsculas y minúsculas
+Según la especificación DOCTYPE HTML 5 de W3.org:
+Un DOCTYPE debe constar de los siguientes componentes, en este orden:
+1. Una cadena que es una coincidencia ASCII que no distingue entre mayúsculas y minúsculas para la cadena "<! DOCTYPE".
+por lo tanto, los siguientes DOCTYPE también son válidos:
+<br>
+&lt; ! doctype html &gt;<br>
+&lt;! dOCtyPe html &gt;<br>
+&lt; ! DocTYpe html &gt;<br>
+
+
+Este artículo de SO discute ampliamente el tema: ¿tipo de documento en mayúsculas o minúsculas?
+Capítulo 3: Encabezados
+HTML proporciona no solo etiquetas de párrafo simples, sino seis etiquetas de encabezado separadas para indicar encabezados de varios tamaños y espesores. Enumerado como el título 1 al título 6, el título 1 tiene el texto más grande y grueso en el título 6 es el más pequeño y delgado, hasta el nivel de párrafo. Este tema detalla el uso adecuado de estas etiquetas.
+Sección 3.1: Uso de títulos
+Los encabezados se pueden utilizar para describir el tema que preceden y se definen con las etiquetas &lt; h1 &gt; a &lt; h6 &gt;. Encabezados
+admite todos los atributos globales.
+<br>
+•	&lt; h1 &gt; define el encabezado más importante.<br>
+•	&lt; h6 &gt; define el encabezado menos importante.<br>
+
+Definición de un encabezado:
+<br>
+&lt; h1 &gt; Título 1 &lt; /h1 &gt;<br>
+&lt; h2 &gt; Título 2 &lt; /h2 &gt;<br>
+&lt; h3 &gt; Título 3 &lt; /h3 &gt;<br>
+&lt; h4 &gt; Título 4 &lt; /h4 &gt;<br>
+&lt; h5 &gt; Título 5 &lt; /h5 &gt;<br>
+&lt; h6 &gt; Título 6 &lt; /h6 &gt;<br>
+
+La estructura correcta importa
+Los motores de búsqueda y otros agentes de usuario suelen indexar el contenido de la página basándose en elementos de encabezado, por ejemplo para
+Cree una tabla de contenido, por lo que es importante utilizar la estructura correcta para los títulos.
+En general, un artículo debe tener un elemento h1 para el título principal seguido de subtítulos h2, bajando una capa si
+necesario. Si hay elementos h1 en un nivel superior, no deben utilizarse para describir ningún contenido de nivel inferior.
+Documento de ejemplo (intención adicional para ilustrar la jerarquía):
+<br>
+<br>
+&lt; h1 &gt; Título principal &lt; /h1 &gt;<br>
+&lt; p &gt; Introducción  &lt; /p &gt;<br>
+ &lt; h2 &gt; Razón &lt; /h2 &gt;<br>
+&lt; h3 &gt;  Razón &lt; /h3 &gt;<br>
+&lt; p &gt; Párrafo &lt; /p &gt;<br>
+ &lt; h3 &gt; Razón 2 &lt; /h3 &gt;<br>
+ &lt; p &gt; Párrafo &lt; /p &gt;<br>
+ &lt; h2 &gt; Conclusión &lt; /h2 &gt;<br>
+ &lt; p &gt; Párrafo &lt; p &gt;<br>
+
+
+		  </p>
+
+		<h2 class="en">HTML</h2>
+		<p class="en">
+			<strong> 
+Chapter 1: Getting started with HTML </strong> <br> <br>
+Version Specification Date of publication <br>
+1.0 N / A 1994-01-01 <br>
+2.0 RFC 1866 November 24, 1995 <br>
+3.2 W3C: HTML 3.2 Specification 1997-01-14 <br>
+4.0 W3C: HTML 4.0 Specification 1998-04-24 <br>
+4.01 W3C: HTML 4.01 Specification 1999-12-24 <br>
+5 WHATWG: HTML Living Standard 2014-10-28 <br>
+5.1 W3C: HTML 5.1 Specification 2016-11-01 <br> <br>
+<strong> Section 1.1: Hello world </strong> <br> <br>
+Introduction <br>
+HTML (Hypertext Markup Language) uses a markup system made up of elements that represent
+content. Markup means that with HTML you declare what is presented to a viewer, not how it is presented. Visual
+Renderings are defined using Cascading Style Sheets (CSS) and performed using browsers. Still existing elements that
+allow such, as for example font, "are completely obsolete and should not be used by authors" [1].
+HTML is sometimes called a programming language, but it has no logic, so it is a markup language. HTML tags
+provide semantic meaning and machine readability to page content.
+An element generally consists of an opening tag (&lt; element_name &gt;), a closing tag (&lt; / element_name &gt;), containing the
+the name of the element surrounded by angle brackets and the content between them:
+&lt; item_name &gt; ... content ... &lt; / item_name &gt;
+
+
+There are some HTML elements that have no closing tag or content. These are called empty elements. Empty
+elements include <br> &lt; img &gt; , &lt; meta &gt; , &lt; link &gt; and &lt; input &gt; . <br>
+The names of the elements can be considered as descriptive keywords of the content they contain, such as video, audio,
+table, footer.
+An HTML page can potentially consist of hundreds of elements that are then read by a web browser, interpreted
+and becomes audible or human-readable content on the screen.
+For this document, it is important to consider the difference between elements and labels:
+Elements: video, audio, table, footer
+Tags:
+<br> &lt; video &gt; , &lt; audio &gt; , &lt; table &gt; , &lt; footer &gt; , &lt; / html &gt; , &lt; / body &gt;
+for
+Element information
+Let's analyze a label ...
+The tag &lt; p &gt; represents a common paragraph.
+Items typically have an opening tag and a closing tag. The opening tag contains the name of the angled element.
+GoalKicker.com - HTML5 Notes for Pros 3
+square brackets (&lt; p &gt;). The closing tag is identical to the opening tag with the addition of a forward slash (/) between the
+The opening bracket and the element name (&lt; / p &gt;).
+The content can then go between these two tags: &lt; p &gt; This is a simple paragraph. &lt; / p &gt ;.
+
+Creating a simple page
+
+
+The following HTML example creates a simple "Hello World" web page.
+HTML files can be created using any text editor. Files must be saved with an .html or .htm [2] extension to
+to be recognized as HTML files.
+Once created, this file can be opened in any web browser.
+<br> <br>
+&lt;! DOCTYPE html&gt; <br>
+&lt; html lang = "en" &gt; <br>
+&lt; head &gt; <br>
+ &lt; meta charset = "UTF-8" &gt; <br>
+ &lt; title &gt; Hi! &lt; / title &gt; <br>
+ &lt; / head &gt; <br>
+ &lt; body &gt; <br>
+ &lt; h1 &gt; Hello World! &lt; / h1 &gt; <br>
+ &lt; p &gt; Paragraph. &lt; / p &gt; <br>
+ &lt; / body &gt; <br>
+&lt; / html &gt; <br>
+
+Simple page breakdown
+These are the tags used in the example:
+
+Label meaning
+<br>
+&lt;! DOCTYPE &gt;
+Defines the HTML version used in the document. In this case it is HTML5.
+See the topic on document types for more information.
+<br>
+&lt; html &gt;
+Open the page. There should be no markup after the closing tag (&lt; / html &gt;). The lang attribute declares
+the primary language of the page using ISO language codes (en for English).
+See the Content Language topic for more information.
+<br>
+&lt; head &gt;
+Opens the header section, which does not appear in the main browser window, but mainly contains
+information about the HTML document, called metadata. It can also contain imports of
+style sheets and scripts. The closing tag is
+&lt; / head &gt;.
+<br>
+&lt; meta &gt;
+Provides the browser with some metadata about the document. The charset attribute declares the character
+coding. Modern HTML documents should always use UTF-8, although it is not a requirement. In
+HTML, the &lt; meta &gt; it does not require a closing tag.
+See the Meta topic for more information.
+<br>
+&lt; title &gt;
+The title of the page. The text written between this opening and closing tag (
+&lt; / title &gt; ) will be
+displayed on the page tab or in the browser title bar.
+
+<br>
+&lt; body &gt;
+Opens the part of the document that is shown to users, that is, all visible or audible content on a page. Not
+content should be added after the closing tag
+&lt; / body &gt;.
+GoalKicker.com - HTML5 Notes for Pros 4
+
+
+&lt; h1 &gt;
+A level 1 title for the page.
+See the titles for more information.
+
+&lt; p &gt; Represents a paragraph of common text.
+1. ↑ HTML5, 11.2 Non-conforming functions
+2. ↑ .htm is inherited from the inherited DOS three character file extension limit.
+<br> <br>
+<strong> Chapter 2: Doctypes </strong> <br> <br>
+Doctypes - short for 'document type' - help browsers understand the version of HTML the document is written in
+for better performance. Document type declarations are not HTML tags and belong to the beginning of a document. East
+The topic explains the structure and declaration of various doctypes in HTML.
+<br> <br>
+<strong> Section 2.1: Adding the Doctype </strong> <br> <br>
+The &lt; ! The DOCTYPE &gt; should always be included at the top of the HTML document, before the &lt; html &gt; .
+Version ≥ 5
+See HTML 5 Doctype for details on HTML 5 Doctype.
+<br>
+&lt; ! DOCTYPE html&gt; <br>
+Section 2.2: HTML 5 Document Type
+HTML5 is not based on SGML (Generalized Standard Markup Language) and therefore does not require a reference
+to a DTD (Document Type Definition).
+HTML 5 Doctype declaration:
+for
+&lt; ! DOCTYPE html &gt;
+<br>
+Case insensitivity
+According to the W3.org DOCTYPE HTML 5 specification:
+A DOCTYPE must consist of the following components, in this order:
+1. A string that is a case-insensitive ASCII match for the string "&lt; ! DOCTYPE html &gt;".
+therefore, the following DOCTYPEs are also valid:
+<br>
+&lt; ! doctype html&gt; <br>
+&lt;! dOCtyPe html&gt; <br>
+&lt; ! DocTYpe html&gt; <br>
+
+
+This SO article extensively discusses the topic: uppercase or lowercase document type?
+Chapter 3: Headings
+HTML provides not just simple paragraph tags, but six separate heading tags to indicate headings of various sizes and thicknesses. Listed as heading 1 to heading 6, heading 1 has the largest and thickest text, heading 6 is the smallest and thinnest, down to paragraph level. This topic details the proper use of these tags.
+Section 3.1: Use of Titles
+Headings can be used to describe the topic that they precede and are defined with the tags &lt; h1 &gt; a &lt; h6 &gt;. Headers
+supports all global attributes.
+for
+• &lt; h1 &gt; defines the most important heading. <br>
+• &lt; h6 &gt; defines the least important heading. <br>
+
+Definition of a header:
+<br>
+&lt; h1 &gt; Title 1 &lt; / h1 &gt; <br>
+&lt; h2 &gt; Title 2 &lt; / h2 &gt; <br>
+&lt; h3 &gt; Title 3 &lt; / h3 &gt; <br>
+&lt; h4 &gt; Title 4 &lt; / h4 &gt; <br>
+&lt; h5 &gt; Title 5 &lt; / h5 &gt; <br>
+&lt; h6 &gt; Title 6 &lt; / h6 &gt; <br>
+
+The correct structure matters
+Search engines and other user agents often index page content based on header elements, for example to
+Create a table of contents, so it is important to use the correct structure for headings.
+In general, an article should have an h1 element for the main title followed by h2 subtitles, going down one layer if
+necessary. If there are h1 elements at a higher level, they should not be used to describe any lower-level content.
+Sample document (additional intent to illustrate the hierarchy):
+for
+for
+&lt; h1 &gt; Main title & lt; / h1 &gt; <br>
+&lt; p &gt; Introduction & lt; / p &gt; <br>
+&lt; h2 &gt; Reason &lt; / h2> <br>
+&lt; h3 &gt; Reason &lt; / h3 &gt; <br>
+&lt; p &gt; Paragraph &lt; / p &gt; <br>
+&lt; h3 &gt; Reason 2 &lt; / h3 &gt; <br>
+&lt; p &gt; Paragraph &lt; / p &gt; <br>
+&lt; h2 &gt; Conclusion &lt; / h2> <br>
+&lt; p &gt; Paragraph &lt; p &gt; <br>
+
+		</p>
+	</body>
+	<script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+	<script type="text/javascript">
+		$('button').on('click', function(){
+	var lang = $(this).data('lang');
+	$('html').prop('lang', lang);
+	});
+	</script>
+</html>
